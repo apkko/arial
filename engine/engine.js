@@ -38,7 +38,7 @@ class GameEngine{
         this.gameLoopTime.badDelta = this.gameLoopTime.normalDelta + 20;
         
         //Флаг остановки движка
-        this.stop = true;
+        this.isStop = true;
         //мэнэджеры
         this.EntityManager = new manager.Entity(); 
         this.ComponentManager = new manager.Component();
@@ -68,13 +68,13 @@ class GameEngine{
         this.NetworkManager.startListenSocket(this.PORT);
         this.lastTime = Date.now(); 
         ///Запуск бесконечного цикла
-        this.stop = false;
+        this.isStop = false;
         setImmediate(this.gameLoop);
     }
     ///Глобальный цикл игры
     gameLoop(){
         //Если движок не остановлен запускается цикл
-        if(!G_ENGINE.stop){
+        if(!G_ENGINE.isStop){
             
             G_ENGINE.gameLoopTime.currentTime = Date.now();
             G_ENGINE.gameLoopTime.delta  = G_ENGINE.gameLoopTime.currentTime - G_ENGINE.gameLoopTime.lastTime; 

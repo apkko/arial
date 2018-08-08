@@ -17,7 +17,7 @@ class Movement extends System{
        super();
     }
     update(){
-        console.log('NEW_TEST');
+        //console.log('NEW_TEST');
         //console.log('update movement system');
     }
     

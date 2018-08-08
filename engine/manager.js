@@ -498,6 +498,10 @@ class Network_Manager extends Manager{
     }
     getDataForManager(){
         let data ={
+            serverTime: new Date(),
+            serverIsStopped: G_ENGINE.isStop,
+            gameUpdateInterval:G_ENGINE.SETTING.GAME_UPDATE,
+            managerUpdateInterval:G_ENGINE.SETTING.MANAGER_UPDATE,
             clients:this.getClientsDataForManager(),
             users:G_ENGINE.AccountManager.getUsersDataForManager(),
             entityes:G_ENGINE.EntityManager.getEntitysDataForManager(),
