@@ -443,7 +443,10 @@ class Network_Manager extends Manager{
     getClientsDataForManager(){
         let clients = [];
         for(let i in this.clients){
-            clients.push({socketId:this.clients[i].socket.id,userId:this.clients[i].getUserId()});
+            let userId = null;
+            if(this.clients[i].hasUser())
+                userId = this.clients[i].user.id;
+            clients.push({socketId:this.clients[i].socket.id,userId:this.clients[i].getUserId(),userId:userId,isManager:this.clients[i].manager});
         }
         return clients;
     }
